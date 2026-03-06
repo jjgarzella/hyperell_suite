@@ -91,10 +91,6 @@ class TestRandomHyperellipticWrapper(unittest.TestCase):
         self.assertEqual(f.degree(), 6)
         self.assertEqual(C.genus(), 2)
 
-    def test_raises_on_p2(self):
-        with self.assertRaises(ValueError):
-            random_hyperelliptic(2, 5)
-
     def test_raises_on_small_degree(self):
         with self.assertRaises(ValueError):
             random_hyperelliptic(7, 2)

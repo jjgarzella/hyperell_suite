@@ -13,6 +13,7 @@ import os
 # ── Load test modules ────────────────────────────────────────────────────────
 
 load('test/test_random_curves.sage')
+load('test/test_random_curves_char2.sage')
 
 # ── Collect and run all tests ────────────────────────────────────────────────
 
@@ -23,6 +24,9 @@ suite = unittest.TestSuite()
 suite.addTests(loader.loadTestsFromTestCase(TestRandomHyperellipticOddDegree))
 suite.addTests(loader.loadTestsFromTestCase(TestRandomHyperellipticEvenDegree))
 suite.addTests(loader.loadTestsFromTestCase(TestRandomHyperellipticWrapper))
+suite.addTests(loader.loadTestsFromTestCase(TestRandomHyperellipticChar2OddDegree))
+suite.addTests(loader.loadTestsFromTestCase(TestRandomHyperellipticChar2EvenDegree))
+suite.addTests(loader.loadTestsFromTestCase(TestRandomHyperellipticWrapperChar2))
 
 runner = unittest.TextTestRunner(verbosity=2)
 result = runner.run(suite)
