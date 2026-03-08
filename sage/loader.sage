@@ -131,6 +131,32 @@ def load_cases(path):
     return [load_case(case) for case in data['cases']]
 
 
+# TODO: incorporate the id field into load_case and load_cases return values
+def load_case_by_id(path, case_id):
+    """
+    Load a single hyperelliptic curve test case by its id field.
+
+    Parameters
+    ----------
+    path : str
+        Path to the JSON file containing a 'cases' array.
+    case_id : str
+        The id of the case to load.
+
+    Returns
+    -------
+    HyperellCase
+    """
+    with open(path, 'r') as f:
+        data = json.load(f)
+
+    for case in data['cases']:
+        if case['id'] == case_id:
+            return load_case(case)
+
+    raise ValueError(f"No case with id {case_id!r} found in {path}")
+
+
 # ---------------------------------------------------------------------------
 # Usage example
 # ---------------------------------------------------------------------------
